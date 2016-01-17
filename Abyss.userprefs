@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlatformMover.cs">
+    <Files>
+      <File FileName="Assets\Scripts\RaycastController.cs" Line="19" Column="39" />
+      <File FileName="Assets\Scripts\PlatformMover.cs" Line="22" Column="43" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="16" Column="27" />
+      <File FileName="Assets\Scripts\Controller2D.cs" Line="51" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
