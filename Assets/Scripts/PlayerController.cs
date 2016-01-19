@@ -66,14 +66,18 @@ public class PlayerController : MonoBehaviour {
 				timeToWallUnstick = wallStickTime;
 			}
 		}
+		// When jumping off a wall
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			if (wallSliding) {
+					// if moving towards wall
 				if (wallDirX == input.x) {
 					velocity.x = -wallDirX * wallJumpClimb.x;
 					velocity.y = wallJumpClimb.y;
+					// if not moving horizontally
 				} else if (input.x == 0) {
 					velocity.x = -wallDirX * wallJumpOff.x;
 					velocity.y = wallJumpOff.y;
+					// if moving away from wall
 				} else {
 					velocity.x = -wallDirX * wallJumpLeap.x;
 					velocity.y = wallJumpLeap.y;
