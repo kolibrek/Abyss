@@ -24,19 +24,17 @@ public class PlayerController : MonoBehaviour {
 	Vector3 velocity;
 	float velocityXSmoothing;
 
-	private GameObject player;
 	private Controller2D controller;
 
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D> ();
-		player = GameObject.Find ("Player");
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex,2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 
-		print ("Gravity: " + gravity + "Jump Velocity: " + maxJumpVelocity);
+		print ("Player Gravity: " + gravity + "Jump Velocity: " + maxJumpVelocity);
 	}
 
 	// Update is called once per frame
@@ -66,7 +64,6 @@ public class PlayerController : MonoBehaviour {
 				timeToWallUnstick = wallStickTime;
 			}
 		}
-		// When jumping off a wall
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			if (wallSliding) {
 					// if moving towards wall
