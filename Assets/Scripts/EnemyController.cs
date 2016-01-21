@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (Controller2D))]
 public class EnemyController : MonoBehaviour {
 
 	public float maxJumpHeight = 4f;
@@ -38,20 +39,20 @@ public class EnemyController : MonoBehaviour {
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 		
-		print ("Enemy Gravity: " + gravity + "Jump Velocity: " + maxJumpVelocity);
+		//print ("Enemy Gravity: " + gravity + "Jump Velocity: " + maxJumpVelocity);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		Vector2 input = Vector2.zero;
 		if (this.tag == "Seeker") {
-			if (Vector2.Distance(transform.position, heading) >= 1) {
+			if (Vector2.Distance(transform.position, heading) >= 1.5) {
 				float horizontalDistance = heading.x - transform.position.x;
 				float verticalDistance = heading.y - transform.position.y;
-				if (Mathf.Abs(verticalDistance) >= 1) {
+				if (Mathf.Abs(verticalDistance) >= 1.5) {
 					input.y = Mathf.Sign(verticalDistance);
 				}
-				if (Mathf.Abs(horizontalDistance) >= 1) {
+				if (Mathf.Abs(horizontalDistance) >= 1.5) {
 					input.x = Mathf.Sign(horizontalDistance);
 				}
 			}

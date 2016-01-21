@@ -2,7 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controller2D.cs">
     <Files>
-      <File FileName="Assets\Scripts\Controller2D.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Controller2D.cs" Line="155" Column="48" />
+      <File FileName="Assets\Scripts\EnemyController.cs" Line="38" Column="64" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="37" Column="5" />
+      <File FileName="Assets\Scripts\RaycastController.cs" Line="7" Column="27" />
+      <File FileName="Assets\Scripts\PlatformMover.cs" Line="1" Column="4" />
+      <File FileName="Assets\Scripts\LooseController.cs" Line="92" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
