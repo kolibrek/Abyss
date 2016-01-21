@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof (Controller2D))]
-public class EnemyController : MonoBehaviour {
+
+public class EnemyController : NPC {
 
 	public float maxJumpHeight = 4f;
 	public float minJumpHeight = 1f;
@@ -27,11 +27,10 @@ public class EnemyController : MonoBehaviour {
 	Vector3 heading;
 	
 	private GameObject player;
-	private Controller2D controller;
-
+	
 	// Use this for initialization
 	void Start () {
-		controller = GetComponent<Controller2D> ();
+		base.Start();
 		player = GameObject.Find ("Player");
 		heading = FindPlayer();
 
@@ -56,6 +55,8 @@ public class EnemyController : MonoBehaviour {
 					input.x = Mathf.Sign(horizontalDistance);
 				}
 			}
+		}
+		if (this.tag == "Patroller") {
 
 		}
 		int wallDirX = (controller.collisions.left)? -1 : 1;
