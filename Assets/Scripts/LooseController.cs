@@ -2,20 +2,21 @@
 using System.Collections;
 
 [RequireComponent (typeof (Controller2D))]
-public class PlayerController : MonoBehaviour {
-
+public class LooseController : MonoBehaviour {
+	
+	//public float weight;
 	public float maxJumpHeight = 4f;
 	public float minJumpHeight = 1f;
 	public float timeToJumpApex = .5f;
 	public float moveSpeed = 6f;
-
+	
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
 	public Vector2 wallJumpLeap;
 	public float wallSlideSpeedMax = 3;
 	public float wallStickTime = 0.25f;
 	float timeToWallUnstick;
-
+	
 	float accelerationTimeAirborne = 0.3f;
 	float accelerationTimeGrounded = 0.1f;
 	float gravity;
@@ -25,30 +26,34 @@ public class PlayerController : MonoBehaviour {
 	float velocityXSmoothing;
 
 	private Controller2D controller;
+	private GameObject player;
 
 	// Use this for initialization
 	void Start () {
-		controller = GetComponent<Controller2D> ();
+		controller = GetComponent<Controller2D>();
+		player = GameObject.Find("Player");
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex,2);
-		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
-
-		//print ("Player Gravity: " + gravity + "Jump Velocity: " + maxJumpVelocity);
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
-		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+		Vector2 input = Vector2.zero;
+
 		int wallDirX = (controller.collisions.left)? -1 : 1;
-
 		float targetVelocityX = input.x * moveSpeed;
+		
 		velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
-
+		
+		if ((controller.collisions.left && input.x == -1) || (controller.collisions.right && input.x == 1)) {
+			velocity.x = 0;
+		}
+		
 		bool wallSliding = false;
 		if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
 			wallSliding = true;
-
+			
 			if (velocity.y < -wallSlideSpeedMax) {
 				velocity.y = -wallSlideSpeedMax;
 			}
@@ -64,10 +69,10 @@ public class PlayerController : MonoBehaviour {
 				timeToWallUnstick = wallStickTime;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (input.y == 1) {
 			if (wallSliding) {
-					// if moving towards wall
-				if (wallDirX == input.x) {
+				// if moving towards wall
+				if (wallDirX == 1) {
 					velocity.x = -wallDirX * wallJumpClimb.x;
 					velocity.y = wallJumpClimb.y;
 					// if not moving horizontally
@@ -83,21 +88,20 @@ public class PlayerController : MonoBehaviour {
 			if (controller.collisions.below){
 				velocity.y = maxJumpVelocity;
 			}
-		}
-		if (Input.GetKeyUp(KeyCode.Space)) {
+		}/*
+		if (input.y != -1) {
 			if (velocity.y > minJumpVelocity) {
 				velocity.y = minJumpVelocity;
 			}
-		}
+		}*/
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move(velocity * Time.deltaTime, input);
-
+		
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
 	}
 
-	public float GetGravity() {
-		return gravity;
+	void FixedUpdate() {
 	}
 }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
@@ -20,11 +20,11 @@ public class CameraFollow : MonoBehaviour {
 	bool lookAheadStopped;
 
 	void Start() {
-		focusArea = new FocusArea(target.collide.bounds, focusAreaSize);
+		focusArea = new FocusArea(target.collider.bounds, focusAreaSize);
 	}
 
 	void LateUpdate() {
-		focusArea.Update(target.collide.bounds);
+		focusArea.Update(target.collider.bounds);
 
 		Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
 

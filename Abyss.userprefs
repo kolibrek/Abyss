@@ -1,11 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
     <Files>
       <File FileName="Assets/Scripts/Controller2D.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/newScript.cs" Line="16" Column="45" />
       <File FileName="Assets/Scripts/PlayerController.cs" Line="72" Column="6" />
       <File FileName="Assets/Scripts/RaycastController.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\EnemyController.cs" Line="33" Column="16" />
+      <File FileName="Assets\Scripts\Controller2D.cs" Line="15" Column="16" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="4" Column="43" />
+      <File FileName="Assets\Scripts\RaycastController.cs" Line="18" Column="24" />
+      <File FileName="Assets\Scripts\PlatformMover.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LooseController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NPC.cs" Line="10" Column="32" />
+>>>>>>> b5e6c9047c535d79f2b895d292572bb8c3bfb5a8
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
