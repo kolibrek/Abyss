@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
 	public Vector2 wallJumpLeap;
+	public Vector2 throwBack;
 	public float wallSlideSpeedMax = 3;
 	public float wallStickTime = 0.25f;
 	float timeToWallUnstick;
@@ -89,6 +90,22 @@ public class PlayerController : MonoBehaviour {
 				velocity.y = minJumpVelocity;
 			}
 		}
+
+		if (controller.collisions.takingDamage) {
+			if (controller.collisions.below) {
+				velocity.x = controller.collisions.facingDirection * throwBack.x;
+				velocity.y = throwBack.y;
+			}
+			if (controller.collisions.left || controller.collisions.right) {
+				velocity.x = -wallDirX * throwBack.x;
+				velocity.y = throwBack.y;
+			}
+			if (controller.collisions.above) {
+				velocity.x = -wallDirX * throwBack.x;
+				velocity.y = -throwBack.y;
+			}
+		}
+
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move(velocity * Time.deltaTime, input);
 
@@ -97,7 +114,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	public float GetGravity() {
-		return gravity;
+	void TakeDamage() {
+
 	}
 }

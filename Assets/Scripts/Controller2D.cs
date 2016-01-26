@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class Controller2D : RaycastController {
 
-	float maxClimbAngle = 80;
+	float maxClimbAngle = 70;
 	float maxDescendAngle = 75;
 
 	public CollisionInfo collisions;
@@ -90,6 +89,13 @@ public class Controller2D : RaycastController {
 					}
 					collisions.left = directionX == -1;
 					collisions.right = directionX == 1;
+
+					if (hit.collider.tag == "Damaging" && !collisions.invulnerable) {
+						collisions.takingDamage = true;
+						collisions.invulnerable = true;
+						GetComponent<HealthController>().TakeDamage(hit.collider.GetComponent<Damager>().GetDamageAmount());
+						Invoke("ResetInvulnerable", 1.5f);
+					}
 				}
 			}
 		}
@@ -105,7 +111,6 @@ public class Controller2D : RaycastController {
 			collisions.climbingSlope = true;
 			collisions.slopeAngle = slopeAngle;
 		}
-
 	}
 
 	void DescendSlope(ref Vector3 velocity) {
@@ -125,7 +130,6 @@ public class Controller2D : RaycastController {
 						collisions.below = true;
 						collisions.descendingSlope = true;
 						collisions.slopeAngle = slopeAngle;
-
 					}
 				}
 			}
@@ -144,6 +148,7 @@ public class Controller2D : RaycastController {
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
 
 			if (hit) {
+
 				if (hit.collider.tag == "Platform") {
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
@@ -166,6 +171,13 @@ public class Controller2D : RaycastController {
 				}
 				collisions.below = directionY == -1;
 				collisions.above = directionY == 1;
+
+				if (hit.collider.tag == "Damaging" && !collisions.invulnerable) {
+					collisions.takingDamage = true;
+					collisions.invulnerable = true;
+					GetComponent<HealthController>().TakeDamage(hit.collider.GetComponent<Damager>().GetDamageAmount());
+					Invoke("ResetInvulnerable", 1.5f);
+				}
 			}
 		}
 		// For Climbing curved slopes
@@ -188,6 +200,11 @@ public class Controller2D : RaycastController {
 		collisions.fallingThroughPlatform = false;
 	}
 
+	void ResetInvulnerable() {
+
+		collisions.invulnerable = false;
+	}
+
 	public struct CollisionInfo {
 		public bool above, below;
 		public bool left, right;
@@ -198,6 +215,8 @@ public class Controller2D : RaycastController {
 		// 1 = right, -1 = left
 		public int facingDirection;
 		public bool fallingThroughPlatform;
+		public bool takingDamage;
+		public bool invulnerable;
 
 		public void Reset() {
 			above = below = false;
@@ -205,6 +224,7 @@ public class Controller2D : RaycastController {
 			descendingSlope = climbingSlope = false;
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
+			takingDamage = false;
 		}
 	}
 }
