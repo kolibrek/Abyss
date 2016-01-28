@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LoopScripts : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
 
-		WhileLoop();
-		DoWhileLoop();
-		ForLoop();
+		//WhileLoop();
+		//DoWhileLoop();
+		//ForLoop();
+		ForEachLoop ();
 	}
 	
 	// Update is called once per frame
@@ -44,6 +46,36 @@ public class LoopScripts : MonoBehaviour {
 	}
 
 	void ForEachLoop() {
+	/*
+		int arraySize = 3;
+		int[] donutBoxes = new int[arraySize];
+
+		donutBoxes [0] = 12;
+		donutBoxes [1] = 10;
+		donutBoxes [2] = 13;
+
+		foreach(int i in donutBoxes) {
+			Debug.Log (i + " donuts in current box.");
+		}
+
+		int largeBox = donutBoxes[1] * 10;
+	*/
+
+		List<string> peopleMet = new List<string>();
+
+		peopleMet.Add ("Sawyer");
+		peopleMet.Add ("Kevin");
+
+		foreach (string person in peopleMet) {
+			Debug.Log(person);
+		}
+
+		peopleMet.Add ("Mike");
+		peopleMet.Remove ("Kevin");
+
+		foreach (string person in peopleMet) {
+			Debug.Log(person);
+		}
 
 	}
 }
