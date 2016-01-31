@@ -1,8 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\Loops_kevinClemons\Assets\Scripts\WhileLoop.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\PlayerController.cs">
     <Files>
-      <File FileName="..\Loops_kevinClemons\Assets\Scripts\WhileLoop.cs" Line="12" Column="63" />
+      <File FileName="Assets\Scripts\Entities\Controller2D.cs" Line="68" Column="6" />
+      <File FileName="Assets\Scripts\Items\HealthPack.cs" Line="8" Column="18" />
+      <File FileName="Assets\Scripts\Items\ItemStack.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\Items\Item.cs" Line="6" Column="21" />
+      <File FileName="Assets\Scripts\Entities\ItemEntities\HealthPackEntity.cs" Line="11" Column="28" />
+      <File FileName="Assets\Scripts\Entities\HealthController.cs" Line="12" Column="18" />
+      <File FileName="Assets\Scripts\Entities\Inventory.cs" Line="30" Column="11" />
+      <File FileName="Assets\Scripts\Entities\ItemEntities\ItemEntity.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Entities\PlayerController.cs" Line="96" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
