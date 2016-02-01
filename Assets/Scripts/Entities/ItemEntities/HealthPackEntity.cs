@@ -8,7 +8,6 @@ public class HealthPackEntity : ItemEntity {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("Player");
-		itemType = new HealthPack();
 	}
 	
 	// Update is called once per frame
@@ -17,8 +16,9 @@ public class HealthPackEntity : ItemEntity {
 	}
 
 	public override void GetItem() {
-		player.GetComponent<Inventory>().Add(new HealthPack());
-		//gameObject.SetActive(false);
+		HealthPack itemCopy = ScriptableObject.CreateInstance<HealthPack>();
+		itemCopy.sprite = itemType.sprite;
+		player.GetComponent<Inventory>().Add(itemCopy);
 		Destroy(gameObject);
 	}
 }

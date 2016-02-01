@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Items\Item.cs" />
      <Compile Include="Assets\Scripts\Items\ItemStack.cs" />
      <Compile Include="Assets\Scripts\LoopScripts.cs" />
+     <Compile Include="Assets\Scripts\UIElements\PauseController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

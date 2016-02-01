@@ -1,35 +1,52 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
 
 	public int size;
-	private List<Item> inventory;
+	List<Item> inventory;
+	GameObject invDisplay;
+	Image invImage;
+	Text invText;
 
 	// Use this for initialization
-	public void Start () {
+	void Start () {
 		inventory = new List<Item>();
+		invDisplay = GameObject.Find("InventoryDisplay");
+		invImage = GameObject.Find("InvFG").GetComponent<Image>();
+		invText = invDisplay.GetComponentInChildren<Text>();
 	}
+	
 
-	public void Add(Item item) {
+	public bool Add(Item item) {
 		if (inventory.Count < size) {
 			inventory.Add(item);
+			invText.text = item.name;
+			invImage.sprite = item.sprite;
+			invImage.color = new Color(1,1,1,1);
+			return true;
 		}
+		return false;
 	}
 
-	public void Remove(Item item) {
-		inventory.Remove(item);
+	public bool Remove(Item item) {
+		invText.text = "";
+		invImage.sprite = null;
+		invImage.color = new Color(1,1,1,0);
+		return inventory.Remove(item);
 	}
 
-	public void Display() {
+	public void UseCurrent() {
 		if (inventory.Count != 0) {
-			foreach(Item item in inventory) {
-				Debug.Log(item.name);
-			}
+			Item current = inventory[0];
+			Debug.Log("Using " + current.GetName());
+			current.UseItem();
 		} else {
 			Debug.Log("Inventory Empty!");
 		}
+
 	}
 
 	public void AddSlots(int slots) {

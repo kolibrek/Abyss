@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item {
+public class Item : ScriptableObject {
 
-	public string name;
+	new public string name;
 	public Rarity rarity;
+	public Sprite sprite;
 
 	public virtual bool UseItem() {
 		return false;
+	}
+
+	public virtual string GetName() {
+		return this.name;
 	}
 }
 

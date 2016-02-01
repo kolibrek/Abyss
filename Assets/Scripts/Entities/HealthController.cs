@@ -58,6 +58,9 @@ public class HealthController : MonoBehaviour {
 		if (health <= 0) {
 			Die();
 		}
+		if (health > maxHealth) {
+			health = maxHealth;
+		}
 	}
 
 	void Die() {
@@ -65,6 +68,5 @@ public class HealthController : MonoBehaviour {
 		healthText.gameObject.SetActive(false);
 		gameOverText.gameObject.SetActive(true);
 		gameObject.SetActive(false);
-
 	}
 }

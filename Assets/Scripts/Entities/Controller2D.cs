@@ -65,6 +65,7 @@ public class Controller2D : RaycastController {
 
 				if (hit.collider.tag == "Item") {
 					hit.collider.gameObject.GetComponent<ItemEntity>().GetItem();
+					continue;
 				}
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
@@ -166,6 +167,10 @@ public class Controller2D : RaycastController {
 						continue;
 					}
 				}
+				if (hit.collider.tag == "Item") {
+					hit.collider.gameObject.GetComponent<ItemEntity>().GetItem();
+					continue;
+				}
 				velocity.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
 
@@ -181,9 +186,6 @@ public class Controller2D : RaycastController {
 					collisions.invulnerable = true;
 					GetComponent<HealthController>().TakeDamage(hit.collider.GetComponent<Damager>().GetDamageAmount());
 					Invoke("ResetInvulnerable", 1.5f);
-				}
-				if (hit.collider.tag == "Item") {
-					hit.collider.gameObject.GetComponent<ItemEntity>().GetItem();
 				}
 			}
 		}

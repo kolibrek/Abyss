@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 		if (Input.GetKeyDown(KeyCode.I)) {
-			inventory.Display();
+			inventory.UseCurrent();
 		}
 		if (controller.collisions.takingDamage) {
 			if (controller.collisions.below) {
