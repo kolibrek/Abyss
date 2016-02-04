@@ -10,7 +10,7 @@ public class HealthController : MonoBehaviour {
 	bool isDead;
 
 	Text healthText;
-	Text gameOverText;
+	Image gameOverDisplay;
 	Controller2D controller;
 	Renderer render;
 
@@ -22,15 +22,15 @@ public class HealthController : MonoBehaviour {
 		controller = GetComponent<Controller2D>();
 		render = GetComponent<Renderer>();
 
-		invulnerable = new Color(0.3f,0.3f,0.3f,1f);
-		normal = new Color(0.7f, 0.3f, 0.3f, 1f);
+		invulnerable = new Color(0.9f,0.9f,0.9f,1f);
+		normal = new Color(0.8f, 0.3f, 0.3f, 1f);
 
 		health = maxHealth;
 		isDead = false;
 		healthText = GameObject.Find("Health Text").GetComponent<Text>();
-		gameOverText = GameObject.Find("GameOver Text").GetComponent<Text>();
+		gameOverDisplay = GameObject.Find("GameOverDisplay").GetComponent<Image>();
 
-		gameOverText.gameObject.SetActive(false);
+		gameOverDisplay.gameObject.SetActive(false);
 		healthText.text = health + "/" + maxHealth;
 	}
 	
@@ -66,7 +66,11 @@ public class HealthController : MonoBehaviour {
 	void Die() {
 		isDead = true;
 		healthText.gameObject.SetActive(false);
-		gameOverText.gameObject.SetActive(true);
+		gameOverDisplay.gameObject.SetActive(true);
 		gameObject.SetActive(false);
+	}
+
+	public int GetHealth() {
+		return health;
 	}
 }

@@ -117,8 +117,4 @@ public class PlayerController : MonoBehaviour {
 			velocity.y = 0;
 		}
 	}
-
-	void TakeDamage() {
-
-	}
 }
