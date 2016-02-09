@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Entities\Inventory.cs" />
      <Compile Include="Assets\Scripts\Entities\ItemEntities\HealthPackEntity.cs" />
      <Compile Include="Assets\Scripts\Entities\ItemEntities\ItemEntity.cs" />
+     <Compile Include="Assets\Scripts\Entities\ObjectiveEntity.cs" />
      <Compile Include="Assets\Scripts\Entities\PlatformController.cs" />
      <Compile Include="Assets\Scripts\Entities\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Entities\RaycastController.cs" />

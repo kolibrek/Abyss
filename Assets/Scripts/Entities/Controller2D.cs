@@ -67,6 +67,10 @@ public class Controller2D : RaycastController {
 					hit.collider.gameObject.GetComponent<ItemEntity>().GetItem();
 					continue;
 				}
+				if (hit.collider.tag == "Objective") {
+					hit.collider.gameObject.GetComponent<ObjectiveEntity>().GetObjective();
+					continue;
+				}
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -94,13 +98,12 @@ public class Controller2D : RaycastController {
 					}
 					collisions.left = directionX == -1;
 					collisions.right = directionX == 1;
-
-					if (hit.collider.tag == "Damaging" && !collisions.invulnerable) {
-						collisions.takingDamage = true;
-						collisions.invulnerable = true;
-						GetComponent<HealthController>().TakeDamage(hit.collider.GetComponent<Damager>().GetDamageAmount());
-						Invoke("ResetInvulnerable", 1.5f);
-					}
+				}
+				if (hit.collider.tag == "Damaging" && !collisions.invulnerable) {
+					collisions.takingDamage = true;
+					collisions.invulnerable = true;
+					GetComponent<HealthController>().TakeDamage(hit.collider.GetComponent<Damager>().GetDamageAmount());
+					Invoke("ResetInvulnerable", 1.5f);
 				}
 			}
 		}
@@ -169,6 +172,10 @@ public class Controller2D : RaycastController {
 				}
 				if (hit.collider.tag == "Item") {
 					hit.collider.gameObject.GetComponent<ItemEntity>().GetItem();
+					continue;
+				}
+				if (hit.collider.tag == "Objective") {
+					hit.collider.gameObject.GetComponent<ObjectiveEntity>().GetObjective();
 					continue;
 				}
 				velocity.y = (hit.distance - skinWidth) * directionY;

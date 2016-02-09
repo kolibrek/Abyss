@@ -1,12 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UIElements\HealthBar.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Entities\ObjectiveEntity.cs">
     <Files>
-      <File FileName="Assets\Scripts\Entities\HealthController.cs" Line="74" Column="17" />
-      <File FileName="Assets\Scripts\UIElements\HealthBar.cs" Line="15" Column="76" />
       <File FileName="Assets\Scripts\Entities\PlayerController.cs" Line="106" Column="5" />
-      <File FileName="c:\Users\Kevin\Documents\GitHub\Abyss\Assets\Scripts\Entities\Controller2D.cs" Line="24" Column="22" />
-      <File FileName="Assets\Scripts\Entities\PlatformController.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Kevin\Documents\GitHub\Abyss\Assets\Scripts\Entities\Controller2D.cs" Line="70" Column="40" />
+      <File FileName="Assets\Scripts\Entities\ObjectiveEntity.cs" Line="17" Column="30" />
+      <File FileName="Assets\Scripts\Entities\ItemEntities\ItemEntity.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Entities\ItemEntities\HealthPackEntity.cs" Line="12" Column="2" />
+      <File FileName="Assets\Scripts\Entities\HealthController.cs" Line="68" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
