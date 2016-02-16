@@ -22,8 +22,8 @@ public class HealthController : MonoBehaviour {
 		controller = GetComponent<Controller2D>();
 		render = GetComponent<Renderer>();
 
-		invulnerable = new Color(0.9f,0.9f,0.9f,1f);
-		normal = new Color(0.8f, 0.3f, 0.3f, 1f);
+		invulnerable = new Color(0.8f, 0.3f, 0.3f, 1f);
+		normal = new Color(0.9f,0.9f,0.9f,1f);
 
 		health = maxHealth;
 		isDead = false;

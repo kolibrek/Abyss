@@ -27,11 +27,13 @@ public class PlayerController : MonoBehaviour {
 
 	private Controller2D controller;
 	private Inventory inventory;
+	private Animator animator;
 
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D> ();
 		inventory = GetComponent<Inventory>();
+		animator = GetComponent<Animator>();
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex,2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -116,5 +118,13 @@ public class PlayerController : MonoBehaviour {
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
+
+		animator.SetFloat("Speed", velocity.x);
+	}
+
+	void Flip() {
+		Vector3 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
 	}
 }
